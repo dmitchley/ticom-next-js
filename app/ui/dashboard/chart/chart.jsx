@@ -14,38 +14,38 @@ import {
 const data = [
   {
     name: "Sun",
-    visit: 4000,
-    click: 2400,
+    visit: 9,
+    click: 20,
   },
   {
     name: "Mon",
-    visit: 3000,
-    click: 1398,
+    visit: 4,
+    click: 2,
   },
   {
     name: "Tue",
-    visit: 2000,
-    click: 3800,
+    visit: 11,
+    click: 2,
   },
   {
     name: "Wed",
-    visit: 2780,
-    click: 3908,
+    visit: 40,
+    click: 20,
   },
   {
     name: "Thu",
-    visit: 1890,
-    click: 4800,
+    visit: 4,
+    click: 2,
   },
   {
     name: "Fri",
-    visit: 2390,
-    click: 3800,
+    visit: 2,
+    click: 4,
   },
   {
     name: "Sat",
-    visit: 3490,
-    click: 4300,
+    visit: 30,
+    click: 4,
   },
 ];
 
@@ -66,7 +66,7 @@ const Chart = () => {
           }}
         >
           <XAxis dataKey="name" />
-          <YAxis />
+          <YAxis domain={[0, 50]} />
           <Tooltip contentStyle={{ background: "#151c2c", border: "none" }} />
           <Legend />
           <Line

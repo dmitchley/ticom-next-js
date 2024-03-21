@@ -18,6 +18,15 @@
   padding: 10px;
 }
 
+.table tr:hover {
+  background-color: var(--bg);
+}
+
+.table tbody tr {
+  border: 1px solid #b7bac1;
+  border-radius: 10px;
+}
+
 .user {
   display: flex;
   gap: 10px;

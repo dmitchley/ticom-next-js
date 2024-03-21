@@ -1,46 +1,51 @@
-import Image from "next/image";
 import styles from "./rightbar.module.css";
 import { MdPlayCircleFilled, MdReadMore } from "react-icons/md";
+import Link from "next/link";
 
 const Rightbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.item}>
-        <div className={styles.bgContainer}>
-          <Image className={styles.bg} src="/astronaut.png" alt="" fill />
-        </div>
+        <div className={styles.bgContainer}></div>
         <div className={styles.text}>
           <span className={styles.notification}>🔥 Available Now</span>
-          <h3 className={styles.title}>
-            How to use the new version of the admin dashboard?
-          </h3>
-          <span className={styles.subtitle}>Takes 4 minutes to learn</span>
+          <h3 className={styles.title}>Tabletop Temporal Bone</h3>
+          {/* <span className={styles.subtitle}>Takes 4 minutes to learn</span> */}
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Reprehenderit eius libero perspiciatis recusandae possimus.
+            The Tabletop Temporal Bone is an aesthetically appealing piece that
+            not only looks great but also offers an intricate display of
+            temporal bone microanatomy.
           </p>
-          <button className={styles.button}>
-            <MdPlayCircleFilled />
-            Watch
-          </button>
+          <Link
+            href="https://www.ticomlabs.com/product/temporal-bone-tabletop/"
+            target="_new"
+          >
+            <button className={styles.button}>
+              <MdReadMore />
+              View
+            </button>
+          </Link>
         </div>
       </div>
       <div className={styles.item}>
         <div className={styles.text}>
-          <span className={styles.notification}>🚀 Coming Soon</span>
-          <h3 className={styles.title}>
-            New server actions are available, partial pre-rendering is coming
-            up!
-          </h3>
-          <span className={styles.subtitle}>Boost your productivity</span>
+          <span className={styles.notification}>🚀 Available Now</span>
+          <h3 className={styles.title}>Surgical Simulation Temporal Bones!</h3>
+
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Reprehenderit eius libero perspiciatis recusandae possimus.
+            Our Synthetic Otology Models are meticulously crafted to provide a
+            close approximation to the surgical experience. They are designed to
+            enhance surgical precision in otology.
           </p>
-          <button className={styles.button}>
-            <MdReadMore />
-            Learn
-          </button>
+          <Link
+            href="https://www.ticomlabs.com/product/temporal-bone-tabletop/"
+            target="_new"
+          >
+            <button className={styles.button}>
+              <MdReadMore />
+              View
+            </button>
+          </Link>
         </div>
       </div>
     </div>
