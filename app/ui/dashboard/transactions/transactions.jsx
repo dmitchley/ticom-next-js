@@ -1,5 +1,14 @@
 import Image from "next/image";
 import styles from "./transactions.module.css";
+import Link from "next/link";
+
+const user = {
+  name: "john newman",
+  consentStatus: "Pending",
+  date: "14.02.2024",
+};
+
+const formatNameForLink = (name) => name.split(" ").join("-").toLowerCase();
 
 const Transactions = () => {
   return (
@@ -16,41 +25,55 @@ const Transactions = () => {
         <tbody>
           <tr>
             <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
+              <Link
+                href={`/dashboard/patients/${formatNameForLink(user.name)}`}
+              >
+                <div className={styles.user}>
+                  <Image
+                    src="/noavatar.png"
+                    alt=""
+                    width={40}
+                    height={40}
+                    className={styles.userImage}
+                  />
+                  {user.name}
+                </div>
+              </Link>
             </td>
+
             <td>
-              <span className={`${styles.status} ${styles.pending}`}>
-                Pending
-              </span>
+              <Link href="/dashboard/patients/John-Doe">
+                <span className={`${styles.status} ${styles.pending}`}>
+                  {user.consentStatus}
+                </span>
+              </Link>
             </td>
-            <td>14.02.2024</td>
+            <Link href="John Doe">
+              <td> {user.date}</td>
+            </Link>
           </tr>
+
           <tr>
             <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
+              <Link href="John Doe">
+                <div className={styles.user}>
+                  <Image
+                    src="/noavatar.png"
+                    alt=""
+                    width={40}
+                    height={40}
+                    className={styles.userImage}
+                  />
+                  John Doe
+                </div>
+              </Link>
             </td>
             <td>
-              <span className={`${styles.status} ${styles.done}`}>
-                Consented
-              </span>
+              <Link href="John Doe">
+                <span className={`${styles.status} ${styles.done}`}>
+                  Consented
+                </span>
+              </Link>
             </td>
             <td>14.02.2024</td>
           </tr>
