@@ -1,12 +1,14 @@
 "use client";
 
-//import { authenticate } from "@/app/lib/actions";
+//import { AuthService } from "../../../lib/authService"
 import styles from "./loginForm.module.css";
 import { useFormState } from "react-dom";
 import Image from "next/image";
 
 const LoginForm = () => {
-  //const [state, formAction] = useFormState(authenticate, undefined);
+  // const login = async () => {
+
+  // }
 
   return (
     <>
@@ -14,7 +16,7 @@ const LoginForm = () => {
         style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center", // Make sure this is included to center-align all children
+          alignItems: "center",
           textAlign: "center",
         }}
       >

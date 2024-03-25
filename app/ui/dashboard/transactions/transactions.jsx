@@ -2,14 +2,6 @@ import Image from "next/image";
 import styles from "./transactions.module.css";
 import Link from "next/link";
 
-const user = {
-  name: "john newman",
-  consentStatus: "Pending",
-  date: "14.02.2024",
-};
-
-const formatNameForLink = (name) => name.split(" ").join("-").toLowerCase();
-
 const Transactions = () => {
   return (
     <div className={styles.container}>
@@ -25,9 +17,7 @@ const Transactions = () => {
         <tbody>
           <tr>
             <td>
-              <Link
-                href={`/dashboard/patients/${formatNameForLink(user.name)}`}
-              >
+              <Link href="John Doe">
                 <div className={styles.user}>
                   <Image
                     src="/noavatar.png"
@@ -36,21 +26,38 @@ const Transactions = () => {
                     height={40}
                     className={styles.userImage}
                   />
-                  {user.name}
+                  John Doe
                 </div>
               </Link>
             </td>
-
             <td>
-              <Link href="/dashboard/patients/John-Doe">
-                <span className={`${styles.status} ${styles.pending}`}>
-                  {user.consentStatus}
+              <Link href="John Doe">
+                <span className={`${styles.status} ${styles.done}`}>
+                  Consented
                 </span>
               </Link>
             </td>
-            <Link href="John Doe">
-              <td> {user.date}</td>
-            </Link>
+            <td>14.02.2024</td>
+          </tr>
+          <tr>
+            <td>
+              <div className={styles.user}>
+                <Image
+                  src="/noavatar.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className={styles.userImage}
+                />
+                John Doe
+              </div>
+            </td>
+            <td>
+              <span className={`${styles.status} ${styles.done}`}>
+                Consented
+              </span>
+            </td>
+            <td>14.02.2024</td>
           </tr>
 
           <tr>
