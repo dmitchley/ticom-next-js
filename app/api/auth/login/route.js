@@ -2,7 +2,7 @@ import { COOKIE_NAME } from "@/constants";
 import { serialize } from "cookie";
 import { sign } from "jsonwebtoken";
 import { NextResponse } from "next/server";
-import { UserDetails } from "../../../lib/models";
+import { DoctorDetails } from "../../../lib/models";
 import { connectToDb } from "../../../lib/utils";
 
 const MAX_AGE = 60 * 60 * 24 * 30;
@@ -13,7 +13,7 @@ export async function POST(request) {
     const body = await request.json();
     const { email, password } = body;
 
-    const user = await UserDetails.findOne({ email, password });
+    const user = await DoctorDetails.findOne({ email, password });
 
     if (!user) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });

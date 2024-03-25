@@ -41,49 +41,45 @@ const userSchema = new mongoose.Schema(
 export const UserDetails =
   mongoose.models.UserDetails || mongoose.model("UserDetails", userSchema);
 
-// import mongoose from "mongoose";
+const doctorSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      unique: true,
+      min: 2,
+      max: 20,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    code: {
+      // Unique code for the doctor that patients will use
+      type: String,
+      required: true,
+      unique: true,
+      length: 6,
+    },
+    patients: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "UserDetails",
+      },
+    ],
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  { timestamps: true }
+);
 
-// const userSchema = new mongoose.Schema(
-//   {
-//     name: {
-//       type: String,
-//       required: true,
-//       unique: true,
-//       minlength: 2,
-//       maxlength: 20,
-//     },
-//     email: {
-//       type: String,
-//       required: true,
-//       unique: true,
-//     },
-//     password: {
-//       type: String,
-//       required: true,
-//     },
-//     role: {
-//       type: String,
-//       enum: ['admin', 'doctor', 'patient'],
-//       required: true,
-//     },
-//     isActive: {
-//       type: Boolean,
-//       default: true,
-//     },
-//     patients: [{
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: 'User'
-//     }]
-//   },
-//   { timestamps: true }
-// );
-
-// // Ensure that the patients array is only used if the user is a doctor
-// userSchema.pre('save', function(next) {
-//   if (this.role !== 'doctor') {
-//     this.patients = []; // Clear the array if not a doctor
-//   }
-//   next();
-// });
-
-// export const User = mongoose.models.User || mongoose.model("User", userSchema);
+export const DoctorDetails =
+  mongoose.models.DoctorDetails ||
+  mongoose.model("DoctorDetails", doctorSchema);
