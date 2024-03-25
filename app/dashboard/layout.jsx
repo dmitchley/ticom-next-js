@@ -4,6 +4,7 @@ import Sidebar from "../ui/dashboard/sidebar/sidebar";
 import styles from "../ui/dashboard/dashboard.module.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import axios, { AxiosError } from "axios";
 
 const Layout = ({ children }) => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -12,6 +13,10 @@ const Layout = ({ children }) => {
   useEffect(() => {
     (async () => {
       const { user, error } = await getUser();
+
+      console.log("user: " + user);
+
+      console.log("error: " + error);
 
       if (error) {
         push("/");
@@ -22,7 +27,7 @@ const Layout = ({ children }) => {
     })();
   }, [push]);
 
-  if (isSuccess === false) {
+  if (!isSuccess) {
     return <></>;
   }
 

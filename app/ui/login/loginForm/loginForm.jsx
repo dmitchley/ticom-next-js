@@ -1,15 +1,10 @@
 "use client";
 
-//import { AuthService } from "../../../lib/authService"
 import styles from "./loginForm.module.css";
 import { useFormState } from "react-dom";
 import Image from "next/image";
 
 const LoginForm = () => {
-  // const login = async () => {
-
-  // }
-
   return (
     <>
       <div
