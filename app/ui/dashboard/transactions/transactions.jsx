@@ -2,7 +2,9 @@ import Image from "next/image";
 import styles from "./transactions.module.css";
 import Link from "next/link";
 
-const Transactions = () => {
+// Assuming patientsData is passed correctly as a prop
+const Transactions = ({ patientsData }) => {
+  console.log(patientsData);
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Latest Patients</h2>
@@ -10,120 +12,49 @@ const Transactions = () => {
         <thead>
           <tr>
             <td>Name</td>
+            <td>Email</td>
             <td>Consent Status</td>
             <td>Date</td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <Link href="John Doe">
-                <div className={styles.user}>
-                  <Image
-                    src="/noavatar.png"
-                    alt=""
-                    width={40}
-                    height={40}
-                    className={styles.userImage}
-                  />
-                  John Doe
-                </div>
-              </Link>
-            </td>
-            <td>
-              <Link href="John Doe">
-                <span className={`${styles.status} ${styles.done}`}>
-                  Consented
+          {patientsData.map((patient) => (
+            <tr key={patient._id}>
+              <td> {patient.name}</td>
+              <td>{patient.email}</td>
+              <td>
+                <span className={`${styles.status} ${styles.pending}`}>
+                  Pending
                 </span>
-              </Link>
-            </td>
-            <td>14.02.2024</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.done}`}>
-                Consented
-              </span>
-            </td>
-            <td>14.02.2024</td>
-          </tr>
-
-          <tr>
-            <td>
-              <Link href="John Doe">
-                <div className={styles.user}>
-                  <Image
-                    src="/noavatar.png"
-                    alt=""
-                    width={40}
-                    height={40}
-                    className={styles.userImage}
-                  />
-                  John Doe
-                </div>
-              </Link>
-            </td>
-            <td>
-              <Link href="John Doe">
-                <span className={`${styles.status} ${styles.done}`}>
-                  Consented
+              </td>
+              <td>14.02.2024</td>
+            </tr>
+          ))}
+          {/* {patientsData.map((patient, index) => (
+            <tr key={index}>
+              <td>
+                <Link href={`/patient/${encodeURIComponent(patient.name)}`}>
+                  <a className={styles.user}>
+                    <Image
+                      src="/noavatar.png"
+                      alt=""
+                      width={40}
+                      height={40}
+                      className={styles.userImage}
+                    />
+                    {patient.name}
+                  </a>
+                </Link>
+              </td>
+              <td>{patient.email}</td>
+              <td>
+                <span className={`${styles.status} ${styles.pending}`}>
+                  Pending
                 </span>
-              </Link>
-            </td>
-            <td>14.02.2024</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.done}`}>
-                Consented
-              </span>
-            </td>
-            <td>14.02.2024</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                John Doe
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.pending}`}>
-                Pending
-              </span>
-            </td>
-            <td>14.02.2024</td>
-          </tr>
+              </td>
+              <td>14.02.2024</td>{" "}
+            </tr>
+          ))} */}
         </tbody>
       </table>
     </div>

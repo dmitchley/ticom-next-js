@@ -5,6 +5,7 @@ import styles from "../ui/dashboard/dashboard.module.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios, { AxiosError } from "axios";
+import React from "react";
 
 const Layout = ({ children }) => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -12,37 +13,15 @@ const Layout = ({ children }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  // useEffect(() => {
-  //   const fetchAdminData = async () => {
-  //     setLoading(true);
-
-  //     try {
-  //       const response = await axios.get("/api/auth/admin");
-  //       console.log(response);
-  //       setData(response.data);
-  //       setError("");
-  //     } catch (error) {
-  //       console.error("Failed to fetch admin data:", error);
-  //       push("/patients");
-  //       setError(
-  //         "Failed to fetch admin data. Please make sure you are logged in as an admin."
-  //       );
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchAdminData();
-  // }, []);
+  const [patients, setPatient] = useState([]);
 
   useEffect(() => {
     (async () => {
       const { user, error } = await getUser();
 
-      console.log("user: " + JSON.stringify(user));
+      // const patients = await getDoctorPatients();
 
-      // console.log("error: " + error);
+      // setPatient(patients);
 
       if (error) {
         push("/");
@@ -52,10 +31,6 @@ const Layout = ({ children }) => {
       setIsSuccess(true);
     })();
   }, [push]);
-
-  // if (data === null) {
-  //   return <></>;
-  // }
 
   if (!isSuccess) {
     return <></>;
@@ -79,6 +54,24 @@ export default Layout;
 async function getUser() {
   try {
     const { data } = await axios.get("/api/auth/me");
+
+    return {
+      user: data,
+      error: null,
+    };
+  } catch (e) {
+    const error = e;
+
+    return {
+      user: null,
+      error,
+    };
+  }
+}
+
+async function getDoctorPatients() {
+  try {
+    const { data } = await axios.get("/api/auth/doctorcontroller");
 
     return {
       user: data,
