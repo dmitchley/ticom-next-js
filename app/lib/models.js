@@ -66,6 +66,10 @@ const doctorSchema = new mongoose.Schema(
       unique: true,
       length: 6,
     },
+    isDoctor: {
+      type: Boolean,
+      default: true,
+    },
     patients: [
       {
         type: mongoose.Schema.Types.ObjectId,

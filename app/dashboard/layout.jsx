@@ -9,6 +9,32 @@ import axios, { AxiosError } from "axios";
 const Layout = ({ children }) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const { push } = useRouter();
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  // useEffect(() => {
+  //   const fetchAdminData = async () => {
+  //     setLoading(true);
+
+  //     try {
+  //       const response = await axios.get("/api/auth/admin");
+  //       console.log(response);
+  //       setData(response.data);
+  //       setError("");
+  //     } catch (error) {
+  //       console.error("Failed to fetch admin data:", error);
+  //       push("/patients");
+  //       setError(
+  //         "Failed to fetch admin data. Please make sure you are logged in as an admin."
+  //       );
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchAdminData();
+  // }, []);
 
   useEffect(() => {
     (async () => {
@@ -26,6 +52,10 @@ const Layout = ({ children }) => {
       setIsSuccess(true);
     })();
   }, [push]);
+
+  // if (data === null) {
+  //   return <></>;
+  // }
 
   if (!isSuccess) {
     return <></>;
