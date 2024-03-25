@@ -11,14 +11,13 @@ const Dashboard = async () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1>Dashboard</h1>
-      {/* <div className={styles.main}>
+      <div className={styles.main}>
         <Transactions />
         <Chart />
-      </div> */}
-      {/* <div className={styles.side}>
+      </div>
+      <div className={styles.side}>
         <Rightbar />
-      </div> */}
+      </div>
     </div>
   );
 };

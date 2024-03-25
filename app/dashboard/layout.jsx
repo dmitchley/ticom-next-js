@@ -22,13 +22,17 @@ const Layout = ({ children }) => {
     })();
   }, [push]);
 
+  if (isSuccess === false) {
+    return <></>;
+  }
+
   return (
     <div className={styles.container}>
-      {/* <div className={styles.menu}>
+      <div className={styles.menu}>
         <Sidebar />
-      </div> */}
+      </div>
       <div className={styles.content}>
-        {/* <Navbar /> */}
+        <Navbar />
         {children}
       </div>
     </div>
