@@ -79,7 +79,7 @@ const LoginForm = () => {
     event.preventDefault();
 
     const payload = {
-      username: event.currentTarget.username.value,
+      email: event.currentTarget.email.value,
       password: event.currentTarget.password.value,
     };
 
@@ -119,7 +119,7 @@ const LoginForm = () => {
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <h1>Login</h1>
-          <input type="text" placeholder="username" name="username" />
+          <input type="text" placeholder="email" name="email" />
           <input
             type="password"
             placeholder="password"
