@@ -14,9 +14,9 @@ const Layout = ({ children }) => {
     (async () => {
       const { user, error } = await getUser();
 
-      console.log("user: " + user);
+      console.log("user: " + JSON.stringify(user));
 
-      console.log("error: " + error);
+      // console.log("error: " + error);
 
       if (error) {
         push("/");

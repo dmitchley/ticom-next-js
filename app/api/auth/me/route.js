@@ -1,3 +1,4 @@
+import { COOKIE_NAME } from "@/constants";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
@@ -5,7 +6,9 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const cookieStore = cookies();
 
-  const token = cookieStore.get("COOKIE_NAME");
+  const token = cookieStore.get(COOKIE_NAME);
+
+  console.log(token);
 
   if (!token) {
     return NextResponse.json(
@@ -27,7 +30,7 @@ export async function GET() {
     verify(value, secret);
 
     const response = {
-      user: "Super Top Secret User",
+      user: "Authenticated User",
     };
 
     return new Response(JSON.stringify(response), {
