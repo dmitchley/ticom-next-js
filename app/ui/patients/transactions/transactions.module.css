@@ -1,0 +1,264 @@
+.container {
+  background-color: var(--bgSoft);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-weight: 200;
+  color: var(--textSoft);
+}
+
+.table {
+  width: 100%;
+}
+
+.table td {
+  padding: 10px;
+}
+
+.table tr:hover {
+  background-color: var(--bg);
+}
+
+.table tbody tr {
+  border: 1px solid #b7bac1;
+  border-radius: 10px;
+}
+
+.user {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.userImage {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.status {
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 14px;
+  color: white;
+}
+
+.pending {
+  background-color: #f7cb7375;
+}
+
+.done {
+  background-color: #afd6ee75;
+}
+
+.cancelled {
+  background-color: #f7737375;
+}
+
+.medicalVideos_module__container {
+  background-color: var(--bgSoft);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.medicalVideos_module__title {
+  margin-bottom: 20px;
+  font-weight: 200;
+  color: var(--textSoft);
+}
+
+.medicalVideos_module__table {
+  width: 100%;
+}
+
+.medicalVideos_module__table td {
+  padding: 10px;
+}
+
+.medicalVideos_module__table tr:hover {
+  background-color: var(--bg);
+}
+
+.medicalVideos_module__table tbody tr {
+  border: 1px solid #b7bac1;
+  border-radius: 10px;
+}
+
+.medicalVideos_module__watchButton {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.medicalVideos_module__videoPopup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.medicalVideos_module__videoContent {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.medicalVideos_module__closeButton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.medicalVideos_module__videoPlayer {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.watchButton {
+  background-color: #4caf50; /* Green background for visibility and contrast */
+  color: white; /* White text color for readability */
+  padding: 10px 20px; /* Adequate padding for button size */
+  border: none; /* No border for a modern look */
+  border-radius: 5px; /* Slightly rounded corners for a softer look */
+  font-size: 16px; /* Adequate font size for clarity */
+  cursor: pointer; /* Cursor changes to pointer to indicate clickable item */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth background color and transform transition for visual effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  margin: 5px; /* Margin to ensure it doesn't stick to other elements */
+  display: inline-block; /* Ensures that the button doesn't take full width and respects padding */
+}
+
+.watchButton:hover {
+  background-color: #45a049; /* Slightly different green on hover for visual feedback */
+  transform: scale(
+    1.05
+  ); /* Slightly increase the button size on hover for interaction feedback */
+}
+
+.watchButton:active {
+  background-color: #397d35; /* Even darker green for when the button is clicked */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Slightly less shadow to simulate button press */
+}
+
+/* Add these styles to your transactions.module.css or respective CSS module file */
+
+.videoPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoContent {
+  position: relative;
+  width: 60%; /* Adjust based on your preference */
+  aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.closeButton {
+  position: absolute;
+  top: -40px; /* Adjust this to move the close button outside the video box */
+  right: 20px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.videoPlayer {
+  width: 100%; /* Make video fill the container */
+  height: 100%; /* Ditto */
+  border-radius: 20px; /* Match the border-radius of the videoContent for consistency */
+  background-color: black; /* In case the video takes time to load */
+}
+
+.consentContainer {
+  background-color: #f8f9fa; /* A light, neutral background */
+  border: 1px solid #e0e0e0; /* Slight border for depth */
+  padding: 25px;
+  border-radius: 15px; /* Rounded corners for modern feel */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+  max-width: 500px; /* Ensures the form doesn't stretch too wide */
+  margin: auto; /* Center the form in its container */
+}
+
+.consentTitle {
+  margin-bottom: 25px;
+  font-weight: 300; /* Lighter font for a modern, less imposing look */
+  color: #333; /* Dark grey for contrast against the light background */
+  text-align: center;
+}
+
+.consentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.consentText {
+  margin-bottom: 25px;
+  color: #555; /* Slightly lighter for easy reading */
+  text-align: center;
+  font-size: 16px; /* Ensure text is not too small */
+  max-width: 400px; /* Ensures text blocks don't get too wide */
+}
+
+.consentButton {
+  background-color: #00897b; /* A more vibrant button color */
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px; /* More pronounced rounded corners */
+  cursor: pointer;
+  font-size: 18px; /* Larger font size for clarity */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for interaction */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds depth to the button */
+}
+
+.consentButton:hover {
+  background-color: #00695c; /* Darken button on hover for feedback */
+  transform: translateY(-2px); /* Slight raise effect on hover */
+}
+
+.consentButton:disabled {
+  background-color: #aecbca; /* Muted color indicates no action */
+  cursor: not-allowed;
+}
+
+.consentConfirmation {
+  margin-top: 20px;
+  color: #00897b; /* Echoing button color for consistency */
+  font-weight: bold; /* Make confirmation noticeable */
+}
