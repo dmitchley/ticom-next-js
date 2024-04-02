@@ -23,6 +23,8 @@ const Layout = ({ children }) => {
 
       // setPatient(patients);
 
+      console.log(user);
+
       if (error) {
         push("/");
         return;

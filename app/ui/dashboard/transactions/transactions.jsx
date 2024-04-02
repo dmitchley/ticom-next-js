@@ -18,43 +18,26 @@ const Transactions = ({ patientsData }) => {
           </tr>
         </thead>
         <tbody>
-          {patientsData.map((patient) => (
-            <tr key={patient._id}>
-              <td> {patient.name}</td>
-              <td>{patient.email}</td>
-              <td>
-                <span className={`${styles.status} ${styles.pending}`}>
-                  Pending
-                </span>
+          {patientsData.length > 0 ? (
+            patientsData.map((patient) => (
+              <tr key={patient._id}>
+                <td>{patient.name}</td>
+                <td>{patient.email}</td>
+                <td>
+                  <span className={`${styles.status} ${styles.pending}`}>
+                    Pending
+                  </span>
+                </td>
+                <td>14.02.2024</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4" style={{ backgroundColor: "#151c2c" }}>
+                <h2>No patients</h2>
               </td>
-              <td>14.02.2024</td>
             </tr>
-          ))}
-          {/* {patientsData.map((patient, index) => (
-            <tr key={index}>
-              <td>
-                <Link href={`/patient/${encodeURIComponent(patient.name)}`}>
-                  <a className={styles.user}>
-                    <Image
-                      src="/noavatar.png"
-                      alt=""
-                      width={40}
-                      height={40}
-                      className={styles.userImage}
-                    />
-                    {patient.name}
-                  </a>
-                </Link>
-              </td>
-              <td>{patient.email}</td>
-              <td>
-                <span className={`${styles.status} ${styles.pending}`}>
-                  Pending
-                </span>
-              </td>
-              <td>14.02.2024</td>{" "}
-            </tr>
-          ))} */}
+          )}
         </tbody>
       </table>
     </div>

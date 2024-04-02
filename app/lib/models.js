@@ -87,3 +87,22 @@ const doctorSchema = new mongoose.Schema(
 export const DoctorDetails =
   mongoose.models.DoctorDetails ||
   mongoose.model("DoctorDetails", doctorSchema);
+
+const activitySchema = new mongoose.Schema(
+  {
+    patient: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "UserDetails",
+      required: true,
+    },
+    activityType: {
+      type: String,
+    },
+    details: String,
+  },
+  { timestamps: true }
+);
+
+export const ActivityDetails =
+  mongoose.models.ActivityDetails ||
+  mongoose.model("ActivityDetails", activitySchema);
